@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="إخلاء المسؤولية لتطبيق خدمات كلميمة">
+    <title>إخلاء المسؤولية - خدمات كلميمة</title>
+    <style>
+        /* ===== CSS Reset & Base ===== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #dbeafe;
+            --accent: #0ea5e9;
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-card: #ffffff;
+            --border: #e2e8f0;
+            --border-light: #f1f5f9;
+            --success: #10b981;
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+            --radius: 12px;
+            --radius-sm: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        /* ===== Header ===== */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 3rem 1.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-icon {
+            width: 72px;
+            height: 72px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .header-icon svg {
+            width: 36px;
+            height: 36px;
+            fill: white;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.05rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        .last-updated {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            margin-top: 1.2rem;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .last-updated svg {
+            width: 16px;
+            height: 16px;
+            fill: white;
+        }
+
+        /* ===== Main Content ===== */
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 3rem;
+        }
+
+        /* ===== Intro Section ===== */
+        .intro {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.8rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .intro p {
+            color: var(--text-secondary);
+            font-size: 1.02rem;
+            line-height: 1.9;
+        }
+
+        /* ===== Table of Contents ===== */
+        .toc {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.8rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .toc h2 {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .toc h2 svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--primary);
+        }
+
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            columns: 2;
+            column-gap: 2rem;
+        }
+
+        .toc-list li {
+            margin-bottom: 0.5rem;
+            break-inside: avoid;
+        }
+
+        .toc-list a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.92rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.35rem 0;
+            transition: var(--transition);
+            border-radius: var(--radius-sm);
+        }
+
+        .toc-list a:hover {
+            color: var(--primary);
+            background: var(--primary-light);
+            padding-right: 0.5rem;
+        }
+
+        .toc-list a .toc-number {
+            background: var(--primary-light);
+            color: var(--primary);
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* ===== Section Cards ===== */
+        .section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .section:hover {
+            box-shadow: var(--shadow-md);
+            border-color: #cbd5e1;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.4rem 2rem;
+            border-bottom: 1px solid var(--border-light);
+            background: linear-gradient(to left, var(--bg-card), var(--bg-secondary));
+        }
+
+        .section-number {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .section-body {
+            padding: 1.5rem 2rem 1.8rem;
+        }
+
+        .section-body p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.9;
+        }
+
+        .section-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ===== Lists ===== */
+        .styled-list {
+            list-style: none;
+            padding: 0;
+            margin: 0.8rem 0;
+        }
+
+        .styled-list li {
+            position: relative;
+            padding: 0.5rem 1.8rem 0.5rem 0;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .styled-list li::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0.95rem;
+            width: 8px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+
+        /* ===== Sub-sections ===== */
+        .sub-section {
+            background: var(--bg-secondary);
+            border-right: 3px solid var(--primary);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            padding: 1.2rem 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .sub-section h4 {
+            font-size: 1rem;
+            color: var(--text-primary);
+            margin-bottom: 0.6rem;
+            font-weight: 600;
+        }
+
+        .sub-section p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        /* ===== Contact Section ===== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .contact-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 1rem 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            border-color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--primary);
+        }
+
+        .contact-info .label {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-info .value {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .contact-info a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== Footer ===== */
+        .footer {
+            background: var(--text-primary);
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            padding: 2rem 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .footer p {
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .footer .brand {
+            color: white;
+            font-weight: 600;
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 768px) {
+            .header {
+                padding: 2.5rem 1.2rem;
+            }
+
+            .header h1 {
+                font-size: 1.6rem;
+            }
+
+            .toc-list {
+                columns: 1;
+            }
+
+            .section-header {
+                padding: 1.2rem 1.3rem;
+            }
+
+            .section-body {
+                padding: 1.2rem 1.3rem 1.5rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.35rem;
+            }
+
+            .section-header {
+                gap: 0.8rem;
+            }
+
+            .section-number {
+                width: 36px;
+                height: 36px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* ===== Print Styles ===== */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .header {
+                background: #1e293b;
+            }
+
+            .section {
+                break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ccc;
+            }
+
+            .toc {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== Header ===== -->
+    <header class="header">
+        <div class="header-content">
+            <div class="header-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+            </div>
+            <h1>إخلاء المسؤولية</h1>
+            <p class="subtitle">تطبيق خدمات كلميمة</p>
+            <div class="last-updated">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+                آخر تحديث: 4 أغسطس 2026
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== Main Content ===== -->
+    <main class="container">
+
+        <!-- ===== Introduction ===== -->
+        <div class="intro">
+            <p>
+                <strong>تطبيق خدمات كلميمة</strong> هو منصة إلكترونية محلية تهدف إلى تسهيل العثور على مقدمي الخدمات والمهنيين والحرفيين والتواصل معهم. باستخدامك للتطبيق، فإنك توافق على إخلاء المسؤولية التالي:
+            </p>
+        </div>
+
+        <!-- ===== Table of Contents ===== -->
+        <nav class="toc">
+            <h2>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
+                فهرس المحتويات
+            </h2>
+            <ol class="toc-list">
+                <li><a href="#section-1"><span class="toc-number">1</span> طبيعة دور التطبيق</a></li>
+                <li><a href="#section-2"><span class="toc-number">2</span> مسؤولية مقدمي الخدمات</a></li>
+                <li><a href="#section-3"><span class="toc-number">3</span> مسؤولية المستخدم</a></li>
+                <li><a href="#section-4"><span class="toc-number">4</span> عدم ضمان جودة الخدمات</a></li>
+                <li><a href="#section-5"><span class="toc-number">5</span> المعلومات المنشورة</a></li>
+                <li><a href="#section-6"><span class="toc-number">6</span> التعاملات المالية</a></li>
+                <li><a href="#section-7"><span class="toc-number">7</span> النزاعات</a></li>
+                <li><a href="#section-8"><span class="toc-number">8</span> التقييمات والآراء</a></li>
+                <li><a href="#section-9"><span class="toc-number">9</span> الروابط والخدمات الخارجية</a></li>
+                <li><a href="#section-10"><span class="toc-number">10</span> توفر التطبيق</a></li>
+                <li><a href="#section-11"><span class="toc-number">11</span> الاستخدام على مسؤولية المستخدم</a></li>
+                <li><a href="#section-12"><span class="toc-number">12</span> حدود المسؤولية</a></li>
+                <li><a href="#section-13"><span class="toc-number">13</span> الموافقة</a></li>
+            </ol>
+        </nav>
+
+        <!-- ===== Section 1 ===== -->
+        <article class="section" id="section-1">
+            <div class="section-header">
+                <div class="section-number">1</div>
+                <h2 class="section-title">طبيعة دور التطبيق</h2>
+            </div>
+            <div class="section-body">
+                <p>تطبيق خدمات كلميمة يعمل كوسيلة لعرض معلومات مقدمي الخدمات وتسهيل التواصل بينهم وبين المستخدمين.</p>
+                <p>التطبيق لا يمثل بالضرورة أيًا من مقدمي الخدمات المدرجين فيه، ولا يعتبر التطبيق أو مالكه أو مشغلوه طرفًا في أي اتفاق أو عقد أو معاملة تتم بين المستخدم ومقدم الخدمة.</p>
+            </div>
+        </article>
+
+        <!-- ===== Section 2 ===== -->
+        <article class="section" id="section-2">
+            <div class="section-header">
+                <div class="section-number">2</div>
+                <h2 class="section-title">مسؤولية مقدمي الخدمات</h2>
+            </div>
+            <div class="section-body">
+                <p>كل مقدم خدمة مسؤول بشكل كامل عن:</p>
+                <ul class="styled-list">
+                    <li>صحة المعلومات التي يقدمها.</li>
+                    <li>جودة الخدمات التي يقدمها.</li>
+                    <li>الأسعار التي يحددها.</li>
+                    <li>المواعيد والالتزامات المتفق عليها.</li>
+                    <li>التراخيص أو التصاريح اللازمة لممارسة نشاطه، إن وجدت.</li>
+                    <li>أي أضرار أو خسائر ناتجة عن خدماته أو تعاملاته.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ===== Section 3 ===== -->
+        <article class="section" id="section-3">
+            <div class="section-header">
+                <div class="section-number">3</div>
+                <h2 class="section-title">مسؤولية المستخدم</h2>
+            </div>
+            <div class="section-body">
+                <p>يتحمل المستخدم مسؤولية التحقق من هوية مقدم الخدمة ومؤهلاته وخبرته وأسعاره وشروط تقديم الخدمة قبل التعاقد معه أو دفع أي مبلغ مالي.</p>
+                <p>ننصح المستخدمين باتخاذ الاحتياطات المناسبة والتحقق من مقدم الخدمة قبل إجراء أي معاملة.</p>
+            </div>
+        </article>
+
+        <!-- ===== Section 4 ===== -->
+        <article class="section" id="section-4">
+            <div class="section-header">
+                <div class="section-number">4</div>
+                <h2 class="section-title">عدم ضمان جودة الخدمات</h2>
+            </div>
+            <div class="section-body">
+                <p>لا يضمن تطبيق خدمات كلميمة أن جميع مقدمي الخدمات المدرجين في التطبيق يتمتعون بمستوى معين من الجودة أو الخبرة أو الكفاءة.</p>
+                <p>كما لا يضمن التطبيق أن مقدم الخدمة سيكون متاحًا أو سيستجيب للاتصالات أو سيقدم الخدمة في الوقت المتفق عليه.</p>
+            </div>
+        </article>
+
+        <!-- ===== Section 5 ===== -->
+        <article class="section" id="section-5">
+            <div class="section-header">
+                <div class="section-number">5</div>
+                <h2 class="section-title">المعلومات المنشورة</h2>
+            </div>
+            <div class="section-body">
+                <p>قد تكون بعض المعلومات المعروضة في التطبيق مقدمة من مقدمي الخدمات أنفسهم أو من مستخدمين آخرين.</p>
+                <p>رغم سعينا إلى تحسين دقة المعلومات، لا نضمن أن جميع البيانات المنشورة، بما في ذلك الأسماء وأرقام الهواتف والعناوين والأسعار والتقييمات، دقيقة أو كاملة أو محدثة دائمًا.</p>
+            </div>
+        </article>
+
+        <!-- ===== Section 6 ===== -->
+        <article class="section" id="section-6">
+            <div class="section-header">
+                <div class="section-number">6</div>
+                <h2 class="section-title">التعاملات المالية</h2>
+            </div>
+            <div class="section-body">
+                <p>لا يتحمل تطبيق خدمات كلميمة مسؤولية أي مبالغ مالية يتم دفعها بين المستخدمين ومقدمي الخدمات.</p>
+                <p>أي اتفاق مالي أو دفع أو تحويل أموال يتم على مسؤولية الأطراف المعنية، ويجب على المستخدم التأكد من تفاصيل الاتفاق قبل الدفع.</p>
+            </div>
+        </article>
+
+        <!-- ===== Section 7 ===== -->
+        <article class="section" id="section-7">
+            <div class="section-header">
+                <div class="section-number">7</div>
+                <h2 class="section-title">النزاعات</h2>
+            </div>
+            <div class="section-body">
+                <p>أي نزاع أو خلاف أو مطالبة تنشأ بين المستخدم ومقدم الخدمة يجب أن تتم معالجتها مباشرة بين الأطراف المعنية.</p>
+                <p>لا يتحمل تطبيق خدمات كلميمة مسؤولية النزاعات أو الخلافات أو الأضرار الناتجة عن التعاملات بين المستخدمين ومقدمي الخدمات، إلا في حدود ما يفرضه القانون المعمول به.</p>
+            </div>
+        </article>
+
+        <!-- ===== Section 8 ===== -->
+        <article class="section" id="section-8">
+            <div class="section-header">
+                <div class="section-number">8</div>
+                <h2 class="section-title">التقييمات والآراء</h2>
+            </div>
+            <div class="section-body">
+                <p>التقييمات والتعليقات التي قد تظهر في التطبيق تعبر عن آراء أصحابها ولا تمثل بالضرورة رأي أو موقف إدارة التطبيق.</p>
+                <p>قد يتم اتخاذ إجراءات ضد المحتوى المخالف أو المسيء أو المضلل وفقًا للقواعد المعمول بها داخل التطبيق.</p>
+            </div>
+        </article>
+
+        <!-- ===== Section 9 ===== -->
+        <article class="section" id="section-9">
+            <div class="section-header">
+                <div class="section-number">9</div>
+                <h2 class="section-title">الروابط والخدمات الخارجية</h2>
+            </div>
+            <div class="section-body">
+                <p>قد يحتوي التطبيق على روابط أو وسائل للوصول إلى خدمات أو تطبيقات تابعة لأطراف ثالثة.</p>
+                <p>لا يتحمل تطبيق خدمات كلميمة مسؤولية محتوى أو سياسات أو ممارسات هذه الجهات الخارجية.</p>
+            </div>
+        </article>
+
+        <!-- ===== Section 10 ===== -->
+        <article class="section" id="section-10">
+            <div class="section-header">
+                <div class="section-number">10</div>
+                <h2 class="section-title">توفر التطبيق</h2>
+            </div>
+            <div class="section-body">
+                <p>نبذل جهودًا معقولة للحفاظ على تشغيل التطبيق، ولكن لا نضمن أن التطبيق سيعمل دون انقطاع أو أخطاء أو أن جميع الخدمات ستكون متاحة في جميع الأوقات.</p>
+                <p>قد يتم إيقاف بعض الميزات مؤقتًا أو نهائيًا بسبب أعمال الصيانة أو التحديثات أو لأسباب تقنية أو قانونية.</p>
+            </div>
+        </article>
+
+        <!-- ===== Section 11 ===== -->
+        <article class="section" id="section-11">
+            <div class="section-header">
+                <div class="section-number">11</div>
+                <h2 class="section-title">الاستخدام على مسؤولية المستخدم</h2>
+            </div>
+            <div class="section-body">
+                <p>يستخدم كل شخص التطبيق ويتواصل مع مقدمي الخدمات على مسؤوليته الخاصة.</p>
+                <p>يجب على المستخدم توخي الحذر، وخاصة عند مشاركة معلومات شخصية أو إجراء معاملات مالية أو السماح لمقدم خدمة بدخول منزله أو ممتلكاته.</p>
+            </div>
+        </article>
+
+        <!-- ===== Section 12 ===== -->
+        <article class="section" id="section-12">
+            <div class="section-header">
+                <div class="section-number">12</div>
+                <h2 class="section-title">حدود المسؤولية</h2>
+            </div>
+            <div class="section-body">
+                <p>في الحدود التي يسمح بها القانون المعمول به، لا يتحمل تطبيق خدمات كلميمة أو مالكه أو مشغلوه المسؤولية عن أي خسارة مباشرة أو غير مباشرة أو أضرار أو مطالبات تنتج عن التعامل مع مقدمي الخدمات المدرجين في التطبيق أو الاعتماد على المعلومات المنشورة فيه.</p>
+                <p>ولا يهدف هذا الإخلاء إلى استبعاد أي مسؤولية لا يجوز استبعادها قانونًا.</p>
+            </div>
+        </article>
+
+        <!-- ===== Section 13 ===== -->
+        <article class="section" id="section-13">
+            <div class="section-header">
+                <div class="section-number">13</div>
+                <h2 class="section-title">الموافقة</h2>
+            </div>
+            <div class="section-body">
+                <p>باستخدامك ل<strong>تطبيق خدمات كلميمة</strong>، فإنك تقر بأنك قرأت هذا الإخلاء وفهمته وتوافق على استخدام التطبيق وفقًا للشروط المذكورة أعلاه.</p>
+            </div>
+        </article>
+
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer class="footer">
+        <p>
+            باستخدامك ل<strong class="brand">تطبيق خدمات كلميمة</strong>، فإنك تقر بأنك قرأت هذا الإخلاء وفهمته وتوافق على الشروط المذكورة.
+        </p>
+        <p style="margin-top: 0.8rem; font-size: 0.82rem; opacity: 0.6;">
+            &copy; 2026 خدمات كلميمة — جميع الحقوق محفوظة
+        </p>
+    </footer>
+
+</body>
+</html>

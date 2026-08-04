@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="سياسة الخصوصية لتطبيق خدمات كلميمة">
+    <title>سياسة الخصوصية - خدمات كلميمة</title>
+    <style>
+        /* ===== CSS Reset & Base ===== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #dbeafe;
+            --accent: #0ea5e9;
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-card: #ffffff;
+            --border: #e2e8f0;
+            --border-light: #f1f5f9;
+            --success: #10b981;
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+            --radius: 12px;
+            --radius-sm: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        /* ===== Header ===== */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 3rem 1.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-icon {
+            width: 72px;
+            height: 72px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .header-icon svg {
+            width: 36px;
+            height: 36px;
+            fill: white;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.05rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        .last-updated {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            margin-top: 1.2rem;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .last-updated svg {
+            width: 16px;
+            height: 16px;
+            fill: white;
+        }
+
+        /* ===== Main Content ===== */
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 3rem;
+        }
+
+        /* ===== Intro Section ===== */
+        .intro {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.8rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .intro p {
+            color: var(--text-secondary);
+            font-size: 1.02rem;
+            line-height: 1.9;
+        }
+
+        /* ===== Table of Contents ===== */
+        .toc {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.8rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .toc h2 {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .toc h2 svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--primary);
+        }
+
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            columns: 2;
+            column-gap: 2rem;
+        }
+
+        .toc-list li {
+            margin-bottom: 0.5rem;
+            break-inside: avoid;
+        }
+
+        .toc-list a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.92rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.35rem 0;
+            transition: var(--transition);
+            border-radius: var(--radius-sm);
+        }
+
+        .toc-list a:hover {
+            color: var(--primary);
+            background: var(--primary-light);
+            padding-right: 0.5rem;
+        }
+
+        .toc-list a .toc-number {
+            background: var(--primary-light);
+            color: var(--primary);
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* ===== Section Cards ===== */
+        .section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .section:hover {
+            box-shadow: var(--shadow-md);
+            border-color: #cbd5e1;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.4rem 2rem;
+            border-bottom: 1px solid var(--border-light);
+            background: linear-gradient(to left, var(--bg-card), var(--bg-secondary));
+        }
+
+        .section-number {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .section-body {
+            padding: 1.5rem 2rem 1.8rem;
+        }
+
+        .section-body p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.9;
+        }
+
+        .section-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ===== Lists ===== */
+        .styled-list {
+            list-style: none;
+            padding: 0;
+            margin: 0.8rem 0;
+        }
+
+        .styled-list li {
+            position: relative;
+            padding: 0.5rem 1.8rem 0.5rem 0;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .styled-list li::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0.95rem;
+            width: 8px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+
+        /* ===== Sub-sections ===== */
+        .sub-section {
+            background: var(--bg-secondary);
+            border-right: 3px solid var(--primary);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            padding: 1.2rem 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .sub-section h4 {
+            font-size: 1rem;
+            color: var(--text-primary);
+            margin-bottom: 0.6rem;
+            font-weight: 600;
+        }
+
+        .sub-section p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        /* ===== Contact Section ===== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .contact-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 1rem 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            border-color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--primary);
+        }
+
+        .contact-info .label {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-info .value {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .contact-info a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== Footer ===== */
+        .footer {
+            background: var(--text-primary);
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            padding: 2rem 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .footer p {
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .footer .brand {
+            color: white;
+            font-weight: 600;
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 768px) {
+            .header {
+                padding: 2.5rem 1.2rem;
+            }
+
+            .header h1 {
+                font-size: 1.6rem;
+            }
+
+            .toc-list {
+                columns: 1;
+            }
+
+            .section-header {
+                padding: 1.2rem 1.3rem;
+            }
+
+            .section-body {
+                padding: 1.2rem 1.3rem 1.5rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.35rem;
+            }
+
+            .section-header {
+                gap: 0.8rem;
+            }
+
+            .section-number {
+                width: 36px;
+                height: 36px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* ===== Print Styles ===== */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .header {
+                background: #1e293b;
+            }
+
+            .section {
+                break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ccc;
+            }
+
+            .toc {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== Header ===== -->
+    <header class="header">
+        <div class="header-content">
+            <div class="header-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+            </div>
+            <h1>سياسة الخصوصية</h1>
+            <p class="subtitle">تطبيق خدمات كلميمة</p>
+            <div class="last-updated">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+                آخر تحديث: 4 أغسطس 2026
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== Main Content ===== -->
+    <main class="container">
+
+        <!-- ===== Introduction ===== -->
+        <div class="intro">
+            <p>
+                مرحبًا بك في <strong>تطبيق خدمات كلميمة</strong>. نحن نحترم خصوصية المستخدمين ونلتزم بحماية المعلومات التي يتم جمعها أو مشاركتها من خلال التطبيق. تهدف هذه السياسة إلى توضيح كيفية تعامل تطبيق خدمات كلميمة مع المعلومات والبيانات عند استخدامك للتطبيق.
+            </p>
+        </div>
+
+        <!-- ===== Table of Contents ===== -->
+        <nav class="toc">
+            <h2>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
+                فهرس المحتويات
+            </h2>
+            <ol class="toc-list">
+                <li><a href="#section-1"><span class="toc-number">1</span> نبذة عن التطبيق</a></li>
+                <li><a href="#section-2"><span class="toc-number">2</span> المعلومات التي قد يتم جمعها</a></li>
+                <li><a href="#section-3"><span class="toc-number">3</span> كيفية استخدام المعلومات</a></li>
+                <li><a href="#section-4"><span class="toc-number">4</span> مشاركة المعلومات</a></li>
+                <li><a href="#section-5"><span class="toc-number">5</span> الاتصال الهاتفي</a></li>
+                <li><a href="#section-6"><span class="toc-number">6</span> الخدمات والإعلانات التابعة لأطراف ثالثة</a></li>
+                <li><a href="#section-7"><span class="toc-number">7</span> أمن المعلومات</a></li>
+                <li><a href="#section-8"><span class="toc-number">8</span> بيانات الأطفال</a></li>
+                <li><a href="#section-9"><span class="toc-number">9</span> دقة المعلومات</a></li>
+                <li><a href="#section-10"><span class="toc-number">10</span> حذف أو تعديل البيانات</a></li>
+                <li><a href="#section-11"><span class="toc-number">11</span> التغييرات على سياسة الخصوصية</a></li>
+                <li><a href="#section-12"><span class="toc-number">12</span> التواصل معنا</a></li>
+            </ol>
+        </nav>
+
+        <!-- ===== Section 1 ===== -->
+        <article class="section" id="section-1">
+            <div class="section-header">
+                <div class="section-number">1</div>
+                <h2 class="section-title">نبذة عن التطبيق</h2>
+            </div>
+            <div class="section-body">
+                <p>تطبيق خدمات كلميمة هو منصة محلية تهدف إلى تسهيل الوصول إلى مقدمي الخدمات والحرفيين والمهنيين بمدينة كلميمة والمناطق المحيطة بها، من خلال عرض معلومات الخدمات ووسائل التواصل المتاحة.</p>
+                <p>قد تشمل الخدمات، على سبيل المثال لا الحصر:</p>
+                <ul class="styled-list">
+                    <li>السباكة وإصلاح المياه.</li>
+                    <li>الكهرباء.</li>
+                    <li>البناء.</li>
+                    <li>اللحام.</li>
+                    <li>تركيب السيراميك.</li>
+                    <li>الجبص والديكور.</li>
+                    <li>نقل البضائع.</li>
+                    <li>تركيب وإصلاح أجهزة الاستقبال والأقمار الصناعية.</li>
+                    <li>تركيب الأرضيات.</li>
+                    <li>تركيب خدمات الاتصالات.</li>
+                    <li>العقار.</li>
+                    <li>تركيب كاميرات المراقبة وأنظمة الحماية.</li>
+                    <li>المحاسبة.</li>
+                    <li>وغيرها من الخدمات المحلية.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ===== Section 2 ===== -->
+        <article class="section" id="section-2">
+            <div class="section-header">
+                <div class="section-number">2</div>
+                <h2 class="section-title">المعلومات التي قد يتم جمعها</h2>
+            </div>
+            <div class="section-body">
+                <p>قد يتعامل التطبيق مع بعض المعلومات وفقًا للميزات التي يستخدمها المستخدم، ومنها:</p>
+
+                <div class="sub-section">
+                    <h4>أ. معلومات مقدمي الخدمات</h4>
+                    <p>عند إضافة أو نشر بيانات مقدم خدمة، قد يتم إدخال بعض المعلومات مثل:</p>
+                    <ul class="styled-list">
+                        <li>الاسم أو اسم النشاط التجاري.</li>
+                        <li>رقم الهاتف.</li>
+                        <li>نوع الخدمة أو المهنة.</li>
+                        <li>المدينة أو المنطقة.</li>
+                        <li>وصف الخدمة.</li>
+                        <li>الصور أو الشعار، إن تم توفيرها.</li>
+                        <li>التقييمات أو المعلومات المرتبطة بالخدمة.</li>
+                    </ul>
+                </div>
+
+                <div class="sub-section">
+                    <h4>ب. معلومات المستخدمين</h4>
+                    <p>قد لا يحتاج المستخدم إلى إنشاء حساب لاستخدام بعض وظائف التطبيق. ومع ذلك، قد يتم جمع أو معالجة معلومات معينة عند استخدام ميزات محددة، مثل إضافة مقدم خدمة أو إرسال تقييم أو استخدام خدمات أخرى.</p>
+                </div>
+
+                <div class="sub-section">
+                    <h4>ج. المعلومات التقنية</h4>
+                    <p>قد يتم جمع بعض المعلومات التقنية تلقائيًا، مثل:</p>
+                    <ul class="styled-list">
+                        <li>نوع الجهاز.</li>
+                        <li>إصدار نظام التشغيل.</li>
+                        <li>إصدار التطبيق.</li>
+                        <li>معلومات تشخيصية أو بيانات أعطال، إذا كانت الخدمات المستخدمة في التطبيق توفر ذلك.</li>
+                    </ul>
+                    <p style="margin-top: 0.5rem;">ويتم استخدام هذه المعلومات لتحسين أداء التطبيق ومعالجة الأخطاء وتطوير الخدمة.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- ===== Section 3 ===== -->
+        <article class="section" id="section-3">
+            <div class="section-header">
+                <div class="section-number">3</div>
+                <h2 class="section-title">كيفية استخدام المعلومات</h2>
+            </div>
+            <div class="section-body">
+                <p>قد يتم استخدام المعلومات للأغراض التالية:</p>
+                <ul class="styled-list">
+                    <li>تشغيل التطبيق وتوفير خدماته.</li>
+                    <li>عرض بيانات مقدمي الخدمات للمستخدمين.</li>
+                    <li>تسهيل التواصل بين المستخدم ومقدم الخدمة.</li>
+                    <li>تحسين تجربة المستخدم.</li>
+                    <li>تحسين أداء التطبيق.</li>
+                    <li>اكتشاف الأخطاء والمشاكل التقنية.</li>
+                    <li>حماية التطبيق من إساءة الاستخدام.</li>
+                    <li>تحديث وتطوير الخدمات والميزات.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ===== Section 4 ===== -->
+        <article class="section" id="section-4">
+            <div class="section-header">
+                <div class="section-number">4</div>
+                <h2 class="section-title">مشاركة المعلومات</h2>
+            </div>
+            <div class="section-body">
+                <p>قد تكون بعض المعلومات التي يتم إدخالها من طرف مقدمي الخدمات متاحة للعامة داخل التطبيق، مثل اسم مقدم الخدمة ورقم الهاتف ونوع الخدمة والمنطقة، وذلك بهدف تمكين المستخدمين من التواصل معه.</p>
+                <p>لا نبيع أو نؤجر المعلومات الشخصية للمستخدمين لأطراف ثالثة لأغراض تسويقية.</p>
+                <p>قد تتم معالجة بعض البيانات من خلال مزودي خدمات تقنيين نستخدمهم لتشغيل التطبيق، مثل خدمات استضافة قواعد البيانات أو التخزين أو الإعلانات أو التحليلات، وذلك وفقًا لسياسات الخصوصية الخاصة بهذه الخدمات.</p>
+            </div>
+        </article>
+
+        <!-- ===== Section 5 ===== -->
+        <article class="section" id="section-5">
+            <div class="section-header">
+                <div class="section-number">5</div>
+                <h2 class="section-title">الاتصال الهاتفي</h2>
+            </div>
+            <div class="section-body">
+                <p>قد يوفر التطبيق إمكانية الاتصال مباشرة بمقدمي الخدمات عبر أرقام الهواتف المعروضة.</p>
+                <p>عند اختيار الاتصال، يتم استخدام تطبيق الهاتف الموجود على جهازك لإجراء المكالمة. قد يخضع الاتصال لشروط ورسوم شركة الاتصالات الخاصة بك.</p>
+                <p>تطبيق خدمات كلميمة لا يتحكم في المكالمات التي تتم بين المستخدمين ومقدمي الخدمات ولا يتحمل مسؤولية محتوى أو نتائج هذه الاتصالات.</p>
+            </div>
+        </article>
+
+        <!-- ===== Section 6 ===== -->
+        <article class="section" id="section-6">
+            <div class="section-header">
+                <div class="section-number">6</div>
+                <h2 class="section-title">الخدمات والإعلانات التابعة لأطراف ثالثة</h2>
+            </div>
+            <div class="section-body">
+                <p>قد يستخدم التطبيق خدمات تابعة لأطراف ثالثة، مثل خدمات الإعلانات أو التحليلات أو البنية التحتية السحابية.</p>
+                <p>قد تقوم هذه الخدمات بجمع بعض المعلومات التقنية وفقًا لسياساتها الخاصة، وقد تستخدم تقنيات مثل ملفات تعريف الارتباط أو المعرفات الإعلانية أو تقنيات مشابهة، حسب الخدمة المستخدمة.</p>
+                <p>يمكن للمستخدم مراجعة سياسات الخصوصية الخاصة بمزودي الخدمات الخارجيين للحصول على معلومات إضافية حول كيفية تعاملهم مع البيانات.</p>
+            </div>
+        </article>
+
+        <!-- ===== Section 7 ===== -->
+        <article class="section" id="section-7">
+            <div class="section-header">
+                <div class="section-number">7</div>
+                <h2 class="section-title">أمن المعلومات</h2>
+            </div>
+            <div class="section-body">
+                <p>نسعى إلى اتخاذ إجراءات تقنية وتنظيمية مناسبة لحماية المعلومات من الوصول غير المصرح به أو التغيير أو الكشف أو الاستخدام غير المشروع.</p>
+                <p>ومع ذلك، لا يمكن ضمان أن تكون أي خدمة إلكترونية أو طريقة نقل أو تخزين للبيانات آمنة بنسبة 100%.</p>
+            </div>
+        </article>
+
+        <!-- ===== Section 8 ===== -->
+        <article class="section" id="section-8">
+            <div class="section-header">
+                <div class="section-number">8</div>
+                <h2 class="section-title">بيانات الأطفال</h2>
+            </div>
+            <div class="section-body">
+                <p>التطبيق ليس موجهًا بشكل خاص إلى الأطفال، ولا نهدف إلى جمع معلومات شخصية من الأطفال بشكل متعمد.</p>
+                <p>إذا علمنا أن معلومات شخصية لطفل قد تم جمعها دون موافقة مناسبة، فسنسعى إلى اتخاذ الإجراءات اللازمة لمعالجة ذلك.</p>
+            </div>
+        </article>
+
+        <!-- ===== Section 9 ===== -->
+        <article class="section" id="section-9">
+            <div class="section-header">
+                <div class="section-number">9</div>
+                <h2 class="section-title">دقة المعلومات</h2>
+            </div>
+            <div class="section-body">
+                <p>قد يتم إدخال بيانات مقدمي الخدمات من قبل أصحابها أو من قبل مستخدمين آخرين أو من خلال مصادر مختلفة.</p>
+                <p>لا نضمن أن جميع المعلومات المعروضة في التطبيق دقيقة أو محدثة أو كاملة في جميع الأوقات.</p>
+                <p>ننصح المستخدم بالتحقق من بيانات مقدم الخدمة قبل التعامل معه.</p>
+            </div>
+        </article>
+
+        <!-- ===== Section 10 ===== -->
+        <article class="section" id="section-10">
+            <div class="section-header">
+                <div class="section-number">10</div>
+                <h2 class="section-title">حذف أو تعديل البيانات</h2>
+            </div>
+            <div class="section-body">
+                <p>إذا كنت مقدم خدمة وتريد تعديل أو تصحيح أو حذف معلوماتك المنشورة في التطبيق، يمكنك التواصل معنا عبر وسيلة الاتصال الرسمية المتاحة داخل التطبيق.</p>
+                <p>سنحاول معالجة الطلبات المعقولة المتعلقة بتعديل أو حذف البيانات، مع مراعاة المتطلبات القانونية والتقنية.</p>
+            </div>
+        </article>
+
+        <!-- ===== Section 11 ===== -->
+        <article class="section" id="section-11">
+            <div class="section-header">
+                <div class="section-number">11</div>
+                <h2 class="section-title">التغييرات على سياسة الخصوصية</h2>
+            </div>
+            <div class="section-body">
+                <p>قد نقوم بتحديث سياسة الخصوصية هذه من وقت لآخر بسبب تطوير التطبيق أو تغيير الخدمات أو المتطلبات القانونية.</p>
+                <p>سيتم نشر أي تحديثات على هذه الصفحة أو داخل التطبيق، ويُعتبر استمرارك في استخدام التطبيق بعد نشر التعديلات موافقة على السياسة المحدثة، وفقًا لما يسمح به القانون المعمول به.</p>
+            </div>
+        </article>
+
+        <!-- ===== Section 12 ===== -->
+        <article class="section" id="section-12">
+            <div class="section-header">
+                <div class="section-number">12</div>
+                <h2 class="section-title">التواصل معنا</h2>
+            </div>
+            <div class="section-body">
+                <p>إذا كانت لديك أسئلة أو استفسارات بخصوص سياسة الخصوصية أو البيانات، يمكنك التواصل معنا عبر:</p>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        </div>
+                        <div class="contact-info">
+                            <div class="label">البريد الإلكتروني</div>
+                            <div class="value"><a href="mailto:studio.obis@gmail.com">studio.obis@gmail.com</a></div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        </div>
+                        <div class="contact-info">
+                            <div class="label">المدينة</div>
+                            <div class="value">كلميمة، المغرب</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                        </div>
+                        <div class="contact-info">
+                            <div class="label">اسم التطبيق</div>
+                            <div class="value">خدمات كلميمة</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer class="footer">
+        <p>
+            باستخدامك ل<strong class="brand">تطبيق خدمات كلميمة</strong>، فإنك تقر بأنك قرأت سياسة الخصوصية هذه وفهمتها.
+        </p>
+        <p style="margin-top: 0.8rem; font-size: 0.82rem; opacity: 0.6;">
+            &copy; 2026 خدمات كلميمة — جميع الحقوق محفوظة
+        </p>
+    </footer>
+
+</body>
+</html>
